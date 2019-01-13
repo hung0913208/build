@@ -1,0 +1,6 @@
+dist: xenial
+sudo: true
+script:
+  - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+  - bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+
