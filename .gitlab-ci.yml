@@ -1,0 +1,17 @@
+stages:
+  - migrate
+
+migrate_to_opensuse:
+  image: opensuse
+  stage: migrate
+  script:
+    - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+
+migrate_to_ubuntu:
+  image: ubuntu
+  stage: migrate
+  script:
+    - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+
