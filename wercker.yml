@@ -7,7 +7,7 @@ build:
         code: |
           apt update
           apt upgrade -y
-          apt install -y git curl python3 ssh sudo binutils
+          apt install -y git curl python3 ssh sudo binutils build-essential
           CI_PROJECT_DIR=$(pwd)
           git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
           mkdir -p ${CI_PROJECT_DIR}/content

@@ -18,7 +18,7 @@ migrate_to_ubuntu:
   script:
     - apt update
     - apt upgrade -y
-    - apt install -y git curl python3 ssh sudo binutils
+    - apt install -y git curl python3 ssh sudo binutils build-essential
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - mkdir -p ${CI_PROJECT_DIR}/content
     - cd ${CI_PROJECT_DIR}/content
