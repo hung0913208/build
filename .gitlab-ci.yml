@@ -16,7 +16,7 @@ migrate_to_ubuntu:
   script:
     - apt update
     - apt upgrade -y
-    - apt install -y git curl python openssh sudo
+    - apt install -y git curl python ssh sudo
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
 
