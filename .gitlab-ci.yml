@@ -6,7 +6,7 @@ migrate_to_opensuse:
   stage: migrate
   script:
     - zypper update -y
-    - zypper install -y  git curl python openssh sudo which
+    - zypper install -y  git curl python3 openssh sudo which binutils
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - mkdir -p ${CI_PROJECT_DIR}/content
     - cd ${CI_PROJECT_DIR}/content
@@ -18,7 +18,7 @@ migrate_to_ubuntu:
   script:
     - apt update
     - apt upgrade -y
-    - apt install -y git curl python ssh sudo
+    - apt install -y git curl python3 ssh sudoA binutils
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - mkdir -p ${CI_PROJECT_DIR}/content
     - cd ${CI_PROJECT_DIR}/content
