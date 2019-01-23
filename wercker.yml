@@ -1,0 +1,15 @@
+box: ubuntu
+
+build:
+  steps:
+    - script:
+        name: migate
+        code: |
+          apt update
+          apt upgrade -y
+          apt install -y git curl python3 ssh sudo binutils
+          CI_PROJECT_DIR=$(pwd)
+          git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+          mkdir -p ${CI_PROJECT_DIR}/content
+          cd ${CI_PROJECT_DIR}/content
+          bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
