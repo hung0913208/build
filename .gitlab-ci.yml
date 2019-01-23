@@ -6,8 +6,10 @@ migrate_to_opensuse:
   stage: migrate
   script:
     - zypper update -y
-    - zypper install -y  git curl python openssh sudo
+    - zypper install -y  git curl python openssh sudo which
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - mkdir -p ${CI_PROJECT_DIR}/content
+    - cd ${CI_PROJECT_DIR}/content
     - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
 
 migrate_to_ubuntu:
@@ -18,5 +20,7 @@ migrate_to_ubuntu:
     - apt upgrade -y
     - apt install -y git curl python ssh sudo
     - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - mkdir -p ${CI_PROJECT_DIR}/content
+    - cd ${CI_PROJECT_DIR}/content
     - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
 
