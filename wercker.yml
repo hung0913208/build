@@ -1,13 +1,11 @@
-box: ubuntu
+box: opensuse
 
 build:
   steps:
     - script:
         name: migate
         code: |
-          apt update
-          apt upgrade -y
-          apt install -y git curl python3 ssh sudo binutils build-essential
+          zypper install -y git curl &> /dev/null
           CI_PROJECT_DIR=$(pwd)
           git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
           mkdir -p ${CI_PROJECT_DIR}/content
