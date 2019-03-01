@@ -2,5 +2,7 @@ dist: xenial
 sudo: true
 script:
   - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+  - CI_PROJECT_DIR=$(pwd)
+  - mkdir -p ${CI_PROJECT_DIR}/content
+  - cd ${CI_PROJECT_DIR}/content
   - bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
-
