@@ -1,4 +1,4 @@
-box: opensue
+box: opensuse
 
 build:
   steps:
