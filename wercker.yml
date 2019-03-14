@@ -1,11 +1,11 @@
-box: debian
+box: opensue
 
 build:
   steps:
     - script:
         name: migate
         code: |
-          apt install -y git curl &> /dev/null
+          zypper install -y git curl &> /dev/null
           CI_PROJECT_DIR=$(pwd)
           git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
           mkdir -p ${CI_PROJECT_DIR}/content
