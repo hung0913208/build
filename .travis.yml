@@ -1,5 +1,153 @@
-dist: xenial
-sudo: true
+group: travis_latest
+sudo: required
+matrix:
+  fast_finish: true
+  include:
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          packages:
+            - clang
+            - cmake3
+      language: cpp
+      compiler: clang
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          packages:
+            - build-essential
+            - cmake3
+      language: cpp
+      compiler: gcc
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-4.8
+            - cmake3
+      env:
+         - MATRIX_EVAL="CC=gcc-4.8 && CXX=g++-4.8"
+      language: cpp
+      compiler: gcc-4.8
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-4.9
+            - cmake3
+      env:
+        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
+      language: cpp
+      compiler: gcc-4.9
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-5
+            - cmake3
+      env:
+         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
+      language: cpp
+      compiler: gcc-5
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-6
+            - cmake3
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+      language: cpp
+      compiler: gcc-6
+
+    - os: linux
+      dist: trusty
+      addons:
+        apt:
+          update: true
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - gcc-7
+            - cmake3
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+      language: cpp
+      compiler: gcc-7
+
+    - os: osx
+      osx_image: xcode6.4
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode7.3 
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode8.3
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode9 
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode9.1 
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode9.2 
+      language: cpp
+      compiler:
+        - clang
+        - gcc
+
+    - os: osx
+      osx_image: xcode9.3 
+      language: cpp
+      compiler:
+        - clang
+        - gcc
 script:
   - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
   - CI_PROJECT_DIR=$(pwd)
