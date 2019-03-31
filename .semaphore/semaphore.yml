@@ -1,0 +1,45 @@
+# Use the latest stable version of Semaphore 2.0 YML syntax:
+version: v1.0
+
+# Name your pipeline. In case you connect multiple pipelines with promotions,
+# the name will help you differentiate between, for example, a CI build phase
+# and delivery phases.
+name: Semaphore LibBase CI Platform
+
+# An agent defines the environment in which your code runs.
+# It is a combination of one of available machine types and operating
+# system images.
+# See https://docs.semaphoreci.com/article/20-machine-types
+# and https://docs.semaphoreci.com/article/32-ubuntu-1804-image
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+# Blocks are the heart of a pipeline and are executed sequentially.
+# Each block has a task that defines one or more jobs. Jobs define the
+# commands to execute.
+# See https://docs.semaphoreci.com/article/62-concepts
+blocks:
+  - name: Migrate
+    task:
+      jobs:
+      - name: Migrate
+        commands:
+          # Download code from Git repository. This step is mandatory if the
+          # job is to work with your code.
+          - checkout
+
+          # Build our environment
+          - sudo apt install -y git curl python
+
+          # Clone LibBase
+          - CI_PROJECT_DIR=$(pwd)
+          - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+
+          # Create CI with Pipeline/create.sh
+          - mkdir -p ${CI_PROJECT_DIR}/content
+          - cd ${CI_PROJECT_DIR}/content
+          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+      secrets:
+        - name: REPOSITORY
