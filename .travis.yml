@@ -101,13 +101,6 @@ matrix:
       compiler: gcc-7
 
     - os: osx
-      osx_image: xcode6.4
-      language: cpp
-      compiler:
-        - clang
-        - gcc
-
-    - os: osx
       osx_image: xcode7.3 
       language: cpp
       compiler:
