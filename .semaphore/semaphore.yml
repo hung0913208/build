@@ -31,7 +31,7 @@ blocks:
           - checkout
 
           # Build our environment
-          - sudo apt install -y git curl python
+          - sudo apt install -y git curl python qemu >& /dev/null
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
