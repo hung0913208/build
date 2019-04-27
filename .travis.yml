@@ -11,6 +11,7 @@ matrix:
           packages:
             - clang
             - cmake3
+            - qemu
       language: cpp
       compiler: clang
 
@@ -22,6 +23,7 @@ matrix:
           packages:
             - build-essential
             - cmake3
+            - qemu
       language: cpp
       compiler: gcc
 
@@ -35,6 +37,7 @@ matrix:
           packages:
             - gcc-4.8
             - cmake3
+            - qemu
       env:
          - MATRIX_EVAL="CC=gcc-4.8 && CXX=g++-4.8"
       language: cpp
@@ -50,6 +53,7 @@ matrix:
           packages:
             - gcc-4.9
             - cmake3
+            - qemu
       env:
         - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
       language: cpp
@@ -65,6 +69,7 @@ matrix:
           packages:
             - gcc-5
             - cmake3
+            - qemu
       env:
          - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
       language: cpp
@@ -80,6 +85,7 @@ matrix:
           packages:
             - gcc-6
             - cmake3
+            - qemu
       env:
         - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
       language: cpp
@@ -95,6 +101,7 @@ matrix:
           packages:
             - gcc-7
             - cmake3
+            - qemu
       env:
         - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
       language: cpp
@@ -142,7 +149,7 @@ matrix:
         - clang
         - gcc
 script:
-  - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+  - git clone --branch https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
   - CI_PROJECT_DIR=$(pwd)
   - mkdir -p ${CI_PROJECT_DIR}/content
   - cd ${CI_PROJECT_DIR}/content
