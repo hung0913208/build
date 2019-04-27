@@ -35,11 +35,11 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch qemu https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
+          - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
           - cd ${CI_PROJECT_DIR}/content
-          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO}
       secrets:
         - name: REPOSITORY

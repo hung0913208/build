@@ -7,10 +7,10 @@ migrate_to_opensuse:
   script:
     - zypper update -y
     - zypper install -y  git curl python3 openssh sudo which binutils
-    - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - mkdir -p ${CI_PROJECT_DIR}/content
     - cd ${CI_PROJECT_DIR}/content
-    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO}
 
 migrate_to_ubuntu:
   image: ubuntu
@@ -19,8 +19,19 @@ migrate_to_ubuntu:
     - apt update
     - apt upgrade -y
     - apt install -y git curl python3 ssh sudo binutils build-essential
-    - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
     - mkdir -p ${CI_PROJECT_DIR}/content
     - cd ${CI_PROJECT_DIR}/content
-    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO}
+
+migrate_to_centos:
+  image: centos
+  stage: migrate
+  script:
+    - yum update
+    - yum install -y git curl python3 openssh sudo binutils
+    - git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+    - mkdir -p ${CI_PROJECT_DIR}/content
+    - cd ${CI_PROJECT_DIR}/content
+    - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO}
 

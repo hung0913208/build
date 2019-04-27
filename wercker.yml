@@ -7,7 +7,7 @@ build:
         code: |
           zypper install -y git curl which &> /dev/null
           CI_PROJECT_DIR=$(pwd)
-          git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+          git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
           mkdir -p ${CI_PROJECT_DIR}/content
           cd ${CI_PROJECT_DIR}/content
-          bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/create.sh ${REPO}
+          bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO}
