@@ -35,7 +35,7 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch qemu https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
+          - git clone --branch qemu https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
