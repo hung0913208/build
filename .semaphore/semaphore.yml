@@ -35,33 +35,11 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE}.git
-
-          # Create CI with Pipeline/create.sh
-          - mkdir -p ${CI_PROJECT_DIR}/content
-          - cd ${CI_PROJECT_DIR}/content
-          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO} ${BRANCH} ${PACKAGE}
-      secrets:
-        - name: MIGRATE
-  - name: Reproduce
-    task:
-      jobs:
-      - name: Reproduce
-        commands:
-          # Download code from Git repository. This step is mandatory if the
-          # job is to work with your code.
-          - checkout
-
-          # Build our environment
-          - sudo apt install -y git curl python >& /dev/null
-
-          # Clone LibBase
-          - CI_PROJECT_DIR=$(pwd)
           - git clone --branch Tests https://${USERNAME}:${PASSWORD}@bitbucket.org/${USERNAME}/${LIBBASE}.git
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
           - cd ${CI_PROJECT_DIR}/content
-          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO} ${BRANCH} ${PACKAGES}
+          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGE}
       secrets:
-        - name: REPRODUCE
+        - name: MIGRATE
