@@ -142,8 +142,8 @@ matrix:
         - clang
         - gcc  
 script:
-  - git clone --branch Tests https://${USERNAME}:${PASSWORD}@bitbucket.org/${USERNAME}/${LIBBASE}.git
+  - git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE} 
   - CI_PROJECT_DIR=$(pwd)
   - mkdir -p ${CI_PROJECT_DIR}/content
   - cd ${CI_PROJECT_DIR}/content
-  - bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${REPO} ${BRANCH} ${PACKAGES}
+  - bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
