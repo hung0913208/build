@@ -1,11 +1,11 @@
-box: opensuse
+box: ubuntu
 
 build:
   steps:
     - script:
         name: migate
         code: |
-          zypper install -y git curl which &> /dev/null
+          apt install -y git curl &> /dev/null
           CI_PROJECT_DIR=$(pwd)
           git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content
