@@ -17,7 +17,7 @@ jobs:
       - run:
           name: Trigger testing custom repositories
           command: cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
-      - teardown:
+      - run:
           name: Remove everything for the next job
           command: rm -fr content && rm -fr ${LIBBASE}
   reproduce:
@@ -37,6 +37,9 @@ jobs:
       - run:
           name: Trigger testing custom repositories
           command: cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${BRANCH} ${AUTHOR}
+      - run:
+          name: Remove everything for the next job
+          command: rm -fr content && rm -fr ${LIBBASE}
 workflows:
   version: 2
   build_and_test:
