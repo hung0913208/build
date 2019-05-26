@@ -17,8 +17,29 @@ jobs:
       - run:
           name: Trigger testing custom repositories
           command: cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
+      - teardown:
+          name: Remove everything for the next job
+          command: rm -fr content && rm -fr ${LIBBASE}
+  reproduce:
+    docker:
+      - image: circleci/python:latest
+    steps:
+      - checkout
+      - run:
+          name: Prepare the environment
+          command: sudo apt install -y git curl &> /dev/null
+      - run:
+          name: Clone Libbase repository
+          command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
+      - run:
+          name: Create a place for testing
+          command: mkdir -p content
+      - run:
+          name: Trigger testing custom repositories
+          command: cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${BRANCH} ${AUTHOR}
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
+      - reproduce
