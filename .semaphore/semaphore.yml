@@ -45,6 +45,9 @@ blocks:
           - rm -fr ${CI_PROJECT_DIR}/${LIBBASE}
       secrets:
         - name: MIGRATE
+  - name: Reproduce
+    task
+      jobs:
       - name: Reproduce
         commands:
           # Download code from Git repository. This step is mandatory if the
