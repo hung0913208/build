@@ -45,8 +45,9 @@ blocks:
           - rm -fr ${CI_PROJECT_DIR}/${LIBBASE}
       secrets:
         - name: MIGRATE
+
   - name: Reproduce
-    task
+    task:
       jobs:
       - name: Reproduce
         commands:
