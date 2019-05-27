@@ -40,7 +40,7 @@ blocks:
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
           - cd ${CI_PROJECT_DIR}/content
-          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGE}
+          - if [ $JOB = 'build' ]; then bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGE}; fi
           - rm -fr ${CI_PROJECT_DIR}/content
           - rm -fr ${CI_PROJECT_DIR}/${LIBBASE}
       secrets:
@@ -65,7 +65,7 @@ blocks:
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
           - cd ${CI_PROJECT_DIR}/content
-          - bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${SPEC} ${AUTHOR}
+          - if [ $JOB = 'reproduce' ]; then bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${SPEC} ${AUTHOR}; fi
           - rm -fr ${CI_PROJECT_DIR}/content
           - rm -fr ${CI_PROJECT_DIR}/${LIBBASE}
       secrets:
