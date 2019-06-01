@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Update newest apt's database
+          command: sudo apt update -y &> /dev/null
+      - run:
           name: Prepare the environment
           command: sudo apt install -y git curl &> /dev/null
       - run:
@@ -22,9 +25,12 @@ jobs:
           command: rm -fr content && rm -fr ${LIBBASE}
   reproduce:
     docker:
-      - image: circleci/python:latest
+      - image: gcc:latest
     steps:
       - checkout
+      - run:
+          name: Update newest apt's database
+          command: sudo apt update -y &> /dev/null
       - run:
           name: Prepare the environment
           command: sudo apt install -y git curl &> /dev/null
