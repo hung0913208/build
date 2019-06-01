@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: ubuntu:latest
+      - image: circleci/python:latest
     steps:
       - checkout
       - run:
@@ -25,7 +25,7 @@ jobs:
           command: rm -fr content && rm -fr ${LIBBASE}
   reproduce:
     docker:
-      - image: ubuntu:latest
+      - image: circleci/python:latest
     steps:
       - checkout
       - run:
