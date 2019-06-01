@@ -7,10 +7,10 @@ jobs:
       - checkout
       - run:
           name: Update newest apt's database
-          command: apt update
+          command: sudo apt update
       - run:
           name: Prepare the environment
-          command: apt install -y git curl sudo
+          command: sudo apt install -y git curl sudo
       - run:
           name: Clone Libbase repository
           command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
@@ -30,10 +30,10 @@ jobs:
       - checkout
       - run:
           name: Update newest apt's database
-          command: apt update
+          command: sudo apt update
       - run:
           name: Prepare the environment
-          command: apt install -y git curl sudo
+          command: sudo apt install -y git curl sudo
       - run:
           name: Clone Libbase repository
           command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
