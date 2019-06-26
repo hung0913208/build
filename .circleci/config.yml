@@ -13,7 +13,7 @@ jobs:
           command: sudo apt install -y git curl sudo
       - run:
           name: Clone Libbase repository
-          command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
+          command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@hungpham.git.beanstalkapp.com/libbase.git ${LIBBASE}
       - run:
           name: Create a place for testing
           command: mkdir -p content
@@ -36,7 +36,7 @@ jobs:
           command: sudo apt install -y git curl sudo
       - run:
           name: Clone Libbase repository
-          command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE}
+          command: git clone --branch Tests https://${USERNAME}:${PASSWORD}@hungpham.git.beanstalkapp.com/libbase.git ${LIBBASE}
       - run:
           name: Create a place for testing
           command: mkdir -p content
