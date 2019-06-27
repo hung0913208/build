@@ -142,7 +142,7 @@ matrix:
         - clang
         - gcc  
 script:
-  - git clone --branch Tests https://review.gerrithub.io/a/hung0913208/LibBase ${LIBBASE} 
+  - git clone --branch Tests https://${USERNAME}:${PASSWORD}@review.gerrithub.io/a/hung0913208/LibBase ${LIBBASE} 
   - CI_PROJECT_DIR=$(pwd)
   - mkdir -p ${CI_PROJECT_DIR}/content
   - cd ${CI_PROJECT_DIR}/content
