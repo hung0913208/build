@@ -35,7 +35,7 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch Tests https://${USERNAME}:${PASSWORD}@bitbucket.org/${USERNAME}/${LIBBASE}.git
+          - git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase.git ${LIBBASE}
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
@@ -60,7 +60,7 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch Tests https://${USERNAME}:${PASSWORD}@bitbucket.org/${USERNAME}/${LIBBASE}.git
+          - git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase.git ${LIBBASE}
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
