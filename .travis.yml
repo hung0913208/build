@@ -30,75 +30,56 @@ matrix:
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
+
           packages:
-            - gcc-4.8
+            - gcc
             - cmake3
-      env:
-         - MATRIX_EVAL="CC=gcc-4.8 && CXX=g++-4.8"
       language: cpp
-      compiler: gcc-4.8
+      compiler: gcc
 
     - os: linux
       dist: trusty
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - gcc-4.9
+            - gcc
             - cmake3
-      env:
-        - MATRIX_EVAL="CC=gcc-4.9 && CXX=g++-4.9"
       language: cpp
-      compiler: gcc-4.9
+      compiler: gcc
 
     - os: linux
       dist: trusty
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - gcc-5
+            - gcc
             - cmake3
-      env:
-         - MATRIX_EVAL="CC=gcc-5 && CXX=g++-5"
       language: cpp
-      compiler: gcc-5
+      compiler: gcc
 
     - os: linux
       dist: trusty
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - gcc-6
+            - gcc
             - cmake3
-      env:
-        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
       language: cpp
-      compiler: gcc-6
+      compiler: gcc
 
     - os: linux
       dist: trusty
       addons:
         apt:
           update: true
-          sources:
-            - ubuntu-toolchain-r-test
           packages:
-            - gcc-7
+            - gcc
             - cmake3
-      env:
-        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
       language: cpp
-      compiler: gcc-7
+      compiler: gcc
 
     - os: osx
       osx_image: xcode7.3 
