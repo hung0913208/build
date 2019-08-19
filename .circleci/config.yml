@@ -42,7 +42,7 @@ jobs:
           command: mkdir -p content
       - run:
           name: Trigger testing custom repositories
-          command: if [[ ${#ISSUE} -gt 0 ]]; then cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${SPEC} ${AUTHOR}; fi
+          command: cd content && bash $(pwd)/../${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${SPEC} ${AUTHOR}
       - run:
           name: Remove everything for the next job
           command: rm -fr content && rm -fr ${LIBBASE}
