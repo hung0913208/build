@@ -5,9 +5,9 @@ build:
     - script:
         name: migate
         code: |
-          apt install -y git curl &> /dev/null
+          apt install -y git curl
           CI_PROJECT_DIR=$(pwd)
-          git clone --branch Tests https://${USERNAME}:${PASSWORD}@dev.azure.com/blackcat0115/${LIBBASE}/_git/${LIBBASE} 
+          git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE} ${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content
           cd ${CI_PROJECT_DIR}/content
           bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
