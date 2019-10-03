@@ -1,10 +1,11 @@
-box: opensuse
+box: ubuntu
 build:
   steps:
     - script:
         name: build
         code: |
-          zypper install -y git curl
+          apt update
+          apt install -y git curl
           CI_PROJECT_DIR=$(pwd)
           git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE} ${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content
