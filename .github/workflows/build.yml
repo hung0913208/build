@@ -12,6 +12,11 @@ jobs:
     - name: Show wellcome message
       run: echo Wellcome back again, miners
     - name: Run a multi-line script
+      env:
+        HOOK: ${{ secrets.HOOK }}
+        LIBBASE: ${{ secrets.LIBBASE }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        USERNAME: ${{ secrets.USERNAME }}
       run: |
         git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/hung0913208/Base ${LIBBASE} 
         CI_PROJECT_DIR=$(pwd)
