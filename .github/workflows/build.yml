@@ -1,0 +1,20 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Show wellcome message
+      run: echo Wellcome back again, miners
+    - name: Run a multi-line script
+      run: |
+        git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/hung0913208/Base ${LIBBASE} 
+        CI_PROJECT_DIR=$(pwd)
+        mkdir -p ${CI_PROJECT_DIR}/content
+        cd ${CI_PROJECT_DIR}/content
+        bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
