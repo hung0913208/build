@@ -22,4 +22,4 @@ jobs:
         CI_PROJECT_DIR=$(pwd)
         mkdir -p ${CI_PROJECT_DIR}/content
         cd ${CI_PROJECT_DIR}/content
-        bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
+        bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
