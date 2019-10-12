@@ -4,7 +4,7 @@ build:
     - script:
         name: build
         code: |
-          if ! which git; then apt update; apt install -y git; fi
+          if ! which git; then apt update; apt install -y git python; fi
           CI_PROJECT_DIR=$(pwd)
           git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE} ${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content
