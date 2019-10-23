@@ -10,7 +10,6 @@ matrix:
           update: true
           packages:
             - clang
-            - cmake3
       language: cpp
       compiler: clang
 
@@ -21,7 +20,6 @@ matrix:
           update: true
           packages:
             - build-essential
-            - cmake3
       language: cpp
       compiler: gcc
 
@@ -33,7 +31,6 @@ matrix:
 
           packages:
             - gcc
-            - cmake3
       language: cpp
       compiler: gcc
 
@@ -44,7 +41,6 @@ matrix:
           update: true
           packages:
             - gcc
-            - cmake3
       language: cpp
       compiler: gcc
 
@@ -55,7 +51,6 @@ matrix:
           update: true
           packages:
             - gcc
-            - cmake3
       language: cpp
       compiler: gcc
 
@@ -66,7 +61,6 @@ matrix:
           update: true
           packages:
             - gcc
-            - cmake3
       language: cpp
       compiler: gcc
 
@@ -77,7 +71,6 @@ matrix:
           update: true
           packages:
             - gcc
-            - cmake3
       language: cpp
       compiler: gcc
 
