@@ -120,6 +120,5 @@ script:
   - CI_PROJECT_DIR=$(pwd)
   - mkdir -p ${CI_PROJECT_DIR}/content
   - cd ${CI_PROJECT_DIR}/content
-  - if [ $JOB = "build" ]; then bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}; fi
-  - if [ $JOB = "reproduce" ]; then bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Reproduce.sh ${ISSUE} ${STEP} ${REPO} ${SPEC} ${AUTHOR}; fi
+  - bash ${TRAVIS_BUILD_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
 
