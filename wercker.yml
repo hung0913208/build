@@ -6,7 +6,7 @@ build:
         code: |
           if ! which git; then apt update; apt install -y git python; fi
           CI_PROJECT_DIR=$(pwd)
-          git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/${USERNAME}/${LIBBASE} ${LIBBASE} 
+          git clone --branch Tests https://review.gerrithub.io/${USERNAME}/${LIBBASE} ${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content
           cd ${CI_PROJECT_DIR}/content
           bash ${CI_PROJECT_DIR}/${LIBBASE}/Tests/Pipeline/Create.sh ${METHOD} ${REPO} ${BRANCH} ${PACKAGES}
