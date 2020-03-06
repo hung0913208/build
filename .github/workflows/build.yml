@@ -18,7 +18,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         USERNAME: ${{ secrets.USERNAME }}
       run: |
-        git clone --branch Tests https://${USERNAME}:${PASSWORD}@gitlab.com/hung0913208/Base ${LIBBASE} 
+        git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase ${LIBBASE} 
         CI_PROJECT_DIR=$(pwd)
         mkdir -p ${CI_PROJECT_DIR}/content
         cd ${CI_PROJECT_DIR}/content
