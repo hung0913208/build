@@ -4,7 +4,8 @@ build:
     - script:
         name: build
         code: |
-          if ! which git; then apt update; apt install -y git python; fi
+          ./install-bazel-repo.sh
+          if ! which git; then apt update &> /dev/null; apt install -y git python &> /dev/null; fi
           CI_PROJECT_DIR=$(pwd)
           git clone --branch Tests https://review.gerrithub.io/${USERNAME}/${LIBBASE} ${LIBBASE} 
           mkdir -p ${CI_PROJECT_DIR}/content

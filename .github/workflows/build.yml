@@ -18,6 +18,7 @@ jobs:
         PASSWORD: ${{ secrets.PASSWORD }}
         USERNAME: ${{ secrets.USERNAME }}
       run: |
+        ./install-bazel-repo.sh
         git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase ${LIBBASE} 
         CI_PROJECT_DIR=$(pwd)
         mkdir -p ${CI_PROJECT_DIR}/content

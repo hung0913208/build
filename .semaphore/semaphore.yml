@@ -30,6 +30,9 @@ blocks:
           # job is to work with your code.
           - checkout
 
+          # Install bazel's repo
+          - ./install-bazel-repo.sh
+
           # Build our environment
           - sudo apt install -y git curl python >& /dev/null
 
@@ -54,6 +57,9 @@ blocks:
           # Download code from Git repository. This step is mandatory if the
           # job is to work with your code.
           - checkout
+
+          # Install bazel's repo
+          - ./install-bazel-repo.sh
 
           # Build our environment
           - sudo apt install -y git curl python >& /dev/null

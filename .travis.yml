@@ -115,6 +115,10 @@ matrix:
       compiler:
         - clang
         - gcc  
+
+before_install:
+  - ./install-bazel-repo.sh
+ 
 script:
   - git clone --branch Tests https://review.gerrithub.io/hung0913208/LibBase ${LIBBASE} 
   - CI_PROJECT_DIR=$(pwd)

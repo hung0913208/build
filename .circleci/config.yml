@@ -5,6 +5,9 @@ jobs:
       - image: circleci/python:latest
     steps:
       - checkout
+      - run
+          name: Install bazel's repo
+          command: ./install-bazel-repo.sh
       - run:
           name: Update newest apt's database
           command: sudo apt update
@@ -28,6 +31,9 @@ jobs:
       - image: circleci/python:latest
     steps:
       - checkout
+      - run
+          name: Install bazel's repo
+          command: ./install-bazel-repo.sh
       - run:
           name: Update newest apt's database
           command: sudo apt update
