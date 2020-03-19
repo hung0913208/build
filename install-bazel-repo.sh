@@ -30,8 +30,8 @@ if [ "$machine" == "Linux" ] || [ "$machine" == "FreeBSD" ]; then
 
 	# @NOTE: check and set INSTALL tool
 	if which apt-get >& /dev/null; then
-		$SU apt update
-		$SU apt install curl
+		$SU apt update -y
+		$SU apt install -y curl gnupg2
 		curl https://bazel.build/bazel-release.pub.gpg | $SU apt-key add -
 		echo "deb [arch=amd64] https://storage.googleapis.com/bazel-apt stable jdk1.8" | $SU tee /etc/apt/sources.list.d/bazel.list
 	elif which apt >& /dev/null; then
