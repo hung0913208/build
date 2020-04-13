@@ -6,10 +6,10 @@ jobs:
     steps:
       - checkout
       - run
-          name: Install bazel's repo
+          name: Install repo of bazel
           command: ./install-bazel-repo.sh
       - run:
-          name: Update newest apt's database
+          name: Update newest database of apt
           command: sudo apt update
       - run:
           name: Prepare the environment
@@ -32,10 +32,10 @@ jobs:
     steps:
       - checkout
       - run
-          name: Install bazel's repo
+          name: Install repo of bazel
           command: ./install-bazel-repo.sh
       - run:
-          name: Update newest apt's database
+          name: Update newest database of apt
           command: sudo apt update
       - run:
           name: Prepare the environment
