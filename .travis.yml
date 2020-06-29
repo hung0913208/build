@@ -95,7 +95,7 @@ before_install:
   - ./install-bazel-repo.sh
  
 script:
-  - git clone --branch Tests https://review.gerrithub.io/hung0913208/LibBase ${LIBBASE} 
+  - git clone --branch Tests https://$USERNAME:$PASSWORD@gitlab.com/make-online-money-simple/libraries/base ${LIBBASE} 
   - CI_PROJECT_DIR=$(pwd)
   - mkdir -p ${CI_PROJECT_DIR}/content
   - cd ${CI_PROJECT_DIR}/content
