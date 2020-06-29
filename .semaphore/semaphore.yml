@@ -38,7 +38,7 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase.git ${LIBBASE}
+          - git clone https://github.com/hung0913208/Base  ${LIBBASE}
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
@@ -66,7 +66,7 @@ blocks:
 
           # Clone LibBase
           - CI_PROJECT_DIR=$(pwd)
-          - git clone --branch Tests https://review.gerrithub.io/${USERNAME}/LibBase.git ${LIBBASE}
+          - git clone https://github.com/hung0913208/Base  ${LIBBASE}
 
           # Create CI with Pipeline/create.sh
           - mkdir -p ${CI_PROJECT_DIR}/content
