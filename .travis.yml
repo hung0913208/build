@@ -4,7 +4,7 @@ matrix:
   fast_finish: true
   include:
     - os: linux
-      dist: xenial
+      dist: bionic
       addons:
         apt:
           update: true
@@ -14,7 +14,7 @@ matrix:
       compiler: clang
 
     - os: linux
-      dist: xenial
+      dist: bionic
       addons:
         apt:
           update: true
